@@ -62,7 +62,7 @@ keys = [
 # SUPER + FUNCTION KEYS
     Key([mod], "F1", lazy.spawn("firefox")),
     Key([mod], "F2", lazy.spawn("qutebrowser")),
-    Key([mod], "F3", lazy.spawn("qutebrowser")),
+    Key([mod], "F3", lazy.spawn("google-chrome-stable")),
     Key([mod], "F4", lazy.spawn("spotify")),
     Key([mod], "F5", lazy.spawn("code")),
     Key([mod], "F6", lazy.spawn("discord")),
