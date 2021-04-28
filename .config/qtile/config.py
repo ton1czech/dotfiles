@@ -158,7 +158,7 @@ for i, (name, kwargs) in enumerate(group_names, 1):
     keys.append(Key([mod, "shift"], str(i), lazy.window.togroup(name))) # Send current window to another group
 
 def init_layout_theme():
-    return {"margin":5,
+    return {"margin":8,
             "border_width":2,
             "border_focus": "#1cefff",
             "border_normal": "#c0c0aa"
@@ -168,7 +168,8 @@ layout_theme = init_layout_theme()
 
 
 layouts = [
-    layout.MonadTall(margin=8, border_width=2, border_focus="#1cefff", border_normal="#c0c0aa"),
+    layout.MonadTall(**layout_theme),
+    layout.RatioTile(**layout_theme),
     layout.Matrix(**layout_theme),
     layout.Bsp(**layout_theme),
     layout.Max(**layout_theme)
