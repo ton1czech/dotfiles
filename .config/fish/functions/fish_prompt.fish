@@ -1,0 +1,1 @@
+/home/ton1czech/.local/share/omf/themes/dangerous/fish_prompt.fish
