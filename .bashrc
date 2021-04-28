@@ -7,7 +7,7 @@
 
 export HISTCONTROL=ignoreboth:erasedups
 
-export PS1='\[\e[0;2m\]\u\[\e[0;2m\]@\[\e[0;2m\]\h\[\e[0m\]: \[\e[0;38;5;46m\]<\[\e[0;38;5;46m\]\w\[\e[0;38;5;46m\]> \[\e[0;91m\][\[\e[0;91m\]$(git branch 2>/dev/null | grep '"'"'^*'"'"' | colrm 1 2)\[\e[0;91m\]]\[\e[0;1m\]\$ \[\e[0m\]' 
+PS1='\[\e[0;2m\]\u\[\e[0m\]: \[\e[0;38;5;46m\]<\[\e[0;38;5;46m\]\w\[\e[0;38;5;46m\]> \[\e[0;91m\][\[\e[0;91m\]$(git branch 2>/dev/null | grep '"'"'^*'"'"' | colrm 1 2)\[\e[0;91m\]]\[\e[0;1m\]\$ \[\e[0m\]'
 
 if [ -d "$HOME/.bin" ] ;
   then PATH="$HOME/.bin:$PATH"
@@ -74,18 +74,6 @@ alias mirrorxx="sudo reflector --age 6 --latest 20  --fastest 20 --threads 20 --
 
 #systeminfo
 alias probe="sudo -E hw-probe -all -upload"
-
-# Laptop change brightness
-alias bs01="xrandr --output eDP-1 --brightness 0.1"
-alias bs02="xrandr --output eDP-1 --brightness 0.2"
-alias bs03="xrandr --output eDP-1 --brightness 0.3"
-alias bs04="xrandr --output eDP-1 --brightness 0.4"
-alias bs05="xrandr --output eDP-1 --brightness 0.5"
-alias bs06="xrandr --output eDP-1 --brightness 0.6"
-alias bs07="xrandr --output eDP-1 --brightness 0.7"
-alias bs08="xrandr --output eDP-1 --brightness 0.8"
-alias bs09="xrandr --output eDP-1 --brightness 0.9"
-alias bs1="xrandr --output eDP-1 --brightness 1"
 
 # Navigation
 alias ..='cd ../'
