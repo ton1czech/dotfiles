@@ -17,16 +17,16 @@ if [ -d "$HOME/.local/bin" ] ;
   then PATH="$HOME/.local/bin:$PATH"
 fi
 
-#ignore upper and lowercase when TAB completion
+# Ignore upper and lowercase when TAB completion
 bind "set completion-ignore-case on"
 
-# check the window size after each command and, if necessary,
-# update the values of LINES and COLUMNS.
+# Check the window size after each command and, if necessary,
+# Update the values of LINES and COLUMNS.
 shopt -s checkwinsize
 
 #####                    ALIASES                   #####
 
-# Colorize the grep command output for ease of use (good for log files)##
+# Colorize the grep command output for ease of use
 alias grep='grep --color=auto'
 alias egrep='egrep --color=auto'
 alias fgrep='fgrep --color=auto'
@@ -37,42 +37,51 @@ alias uac="sh ~/.bin/main/000*"
 # Continue download
 alias wget="wget -c"
 
-#ps
+# ps
 alias psa="ps auxf"
 alias psgrep="ps aux | grep -v grep | grep -i -e VSZ -e"
 
-#grub update
+# Get top process eating memory
+alias psmem="ps auxf | sort -nr -k 4"
+alias psmem10="ps auxf | sort -nr -k 4 | head -10"
+
+# Get top process eating CPU
+alias pscpu="ps auxf | sort -nr -k 3"
+alias pscpu10="ps auxf | sort -nr -k 3 | head -10"
+
+# Grub update
 alias update-grub="sudo grub-mkconfig -o /boot/grub/grub.cfg"
 
-#add new fonts
+# Add new fonts
 alias update-fc='sudo fc-cache -fv'
 
-#switch between bash and zsh
+# Switch between bash and zsh
 alias tobash="sudo chsh $USER -s /bin/bash && echo 'Now log out.'"
 alias tozsh="sudo chsh $USER -s /bin/zsh && echo 'Now log out.'"
+alias tofish="sudo chsh $USER -s /bin/fish && echo 'Now log out.'"
 
-#switch between lightdm and sddm
+# Switch between lightdm and sddm
 alias tolightdm="sudo pacman -S lightdm lightdm-gtk-greeter lightdm-gtk-greeter-settings --noconfirm --needed ; sudo systemctl enable lightdm.service -f ; echo 'Lightm is active - reboot now'"
 alias tosddm="sudo pacman -S sddm --noconfirm --needed ; sudo systemctl enable sddm.service -f ; echo 'Sddm is active - reboot now'"
 
-# confirm before overwriting something
+# Confirm before overwriting something
 alias cp="cp -i"
 alias mv="mv -i"
 alias rm="rm -i"
 
-#hardware info --short
+# Hardware info --short
 alias hw="hwinfo --short"
 
-#get fastest mirrors in your neighborhood
+# Get fastest mirrors in your neighborhood
 alias mirror="sudo reflector -f 30 -l 30 --number 10 --verbose --save /etc/pacman.d/mirrorlist"
 alias mirrord="sudo reflector --latest 30 --number 10 --sort delay --save /etc/pacman.d/mirrorlist"
 alias mirrors="sudo reflector --latest 30 --number 10 --sort score --save /etc/pacman.d/mirrorlist"
 alias mirrora="sudo reflector --latest 30 --number 10 --sort age --save /etc/pacman.d/mirrorlist"
-#our experimental - best option for the moment
+# Our experimental - best option for the moment
 alias mirrorx="sudo reflector --age 6 --latest 20  --fastest 20 --threads 5 --sort rate --protocol https --save /etc/pacman.d/mirrorlist"
 alias mirrorxx="sudo reflector --age 6 --latest 20  --fastest 20 --threads 20 --sort rate --protocol https --save /etc/pacman.d/mirrorlist"
 
-#systeminfo
+# Systeminfo
 alias probe="sudo -E hw-probe -all -upload"
 
 # Navigation
@@ -85,11 +94,11 @@ alias .5='cd ../../../../..'
 alias tutdir="cd /home/ton1czech/CODING/Tutorials"
 alias ptsdir="cd /home/ton1czech/CODING/Projects"
 alias gngdir="cd /home/ton1czech/CODING/Projects/Python/Python3/gingy"
-alias dlsdir="cd /mnt/c/Users/ton1czech/Downloads"
 alias cvddir="cd /home/ton1czech/CODING/Projects/JavaScript/React/covid19"
 
 # Super List dir command
-alias ll="ls -lah --color"
+alias ls="exa -lah --color=always --group-directories-first"
+alias lt="exa -aT --color=always --group-directories-first"
 
 # Custom git commands
 alias gS="git pull"
