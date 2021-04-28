@@ -1,11 +1,13 @@
-#
-# ~/.bashrc
-#
+#############
+# ~/.bashrc #
+#############
 
 # If not running interactively, don't do anything
 [[ $- != *i* ]] && return
 
 export HISTCONTROL=ignoreboth:erasedups
+export TERM="xterm-256color"
+export EDITOR="vim"
 
 PS1='\[\e[0;2m\]\u\[\e[0m\]: \[\e[0;38;5;46m\]<\[\e[0;38;5;46m\]\w\[\e[0;38;5;46m\]> \[\e[0;91m\][\[\e[0;91m\]$(git branch 2>/dev/null | grep '"'"'^*'"'"' | colrm 1 2)\[\e[0;91m\]]\[\e[0;1m\]\$ \[\e[0m\]'
 
