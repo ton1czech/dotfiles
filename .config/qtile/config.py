@@ -149,7 +149,7 @@ group_names = [("1", {'layout': 'monadtall'}),
            ("6", {'layout': 'monadtall'}),
            ("7", {'layout': 'monadtall'}),
            ("8", {'layout': 'monadtall'}),
-           ("9", {'layout': 'floating'})]
+           ("9", {'layout': 'monadtall'})]
 
 groups = [Group(name, **kwargs) for name, kwargs in group_names]
 
@@ -188,7 +188,9 @@ def init_colors():
             ["#141e30", "#243b55"], # color 8   # Royal
             ["#1cefff", "#1cefff"], # color 9   # Ice
             ["#000428", "#004e92"], # color 10  # Frost
-            ["#e90079", "#be0062"]] # color 11  # Flickr
+            ["#e90079", "#be0062"], # color 11  # Flickr
+            ["#8e2de2", "#4a00e0"], # color 12  # Amin
+            ["#56ccf2", "#2f80ed"]]  # color 13  # Blue Skies
 
 
 colors = init_colors()
@@ -263,6 +265,21 @@ def init_widgets_list():
                        ),
                widget.TextBox(
                        font="Ubuntu Bold",
+                       text = "☂",
+                       padding = 3,
+                       foreground = colors[1],
+                       background = colors[13],
+                       fontsize = 16
+                       ),
+               widget.OpenWeather(
+                       app_key = '95903b10ac9f405b5b7aa02feb8717e5',
+                       cityid = 3062351,
+                       foreground = colors[1],
+                       background = colors[13],
+                       format = "{location_city}: {main_temp}°{units_temperature}  {weather_details}"
+                       ),
+               widget.TextBox(
+                       font="Ubuntu Bold",
                        text = "↑",
                        foreground = colors[6],
                        background = colors[8],
@@ -326,10 +343,22 @@ def init_widgets_list():
                        ),
                widget.TextBox(
                         font="Ubuntu Bold",
-                        text="  ",
+                        text="🔊",
+                        foreground=colors[6],
+                        background=colors[12],
+                        padding = 4,
+                        fontsize=16
+                        ),
+               widget.Volume(
+                        foreground = colors[6],
+                        background = colors[12],
+                        ),
+               widget.TextBox(
+                        font="Ubuntu Bold",
+                        text="",
                         foreground=colors[1],
                         background=colors[7],
-                        padding = 0,
+                        padding = 5,
                         fontsize=16
                         ),
                widget.Clock(
