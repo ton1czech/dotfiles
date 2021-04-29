@@ -1,23 +1,27 @@
-########
-# fish #
-########
+##############################
+# ~/.config/fish/config.fish #
+##############################
 
 ### ADDING TO THE PATH ###
 set -e fish_user_paths
 set -U fish_user_paths $HOME/.local/bin $HOME/Applications $fish_user_paths
 
+
 ### EXPORT ###
-set fish_greeting                                 # Remove fish hello message
-set TERM "xterm-256color"                         # Sets the terminal type
-set EDITOR "vim"								  # $EDITOR use Vim
+set fish_greeting
+set TERM "xterm-256color"
+set EDITOR "vim"
+
 
 ### SET MANPAGER ###
 set -x MANPAGER '/bin/bash -c "vim -MRn -c \"set buftype=nofile showtabline=0 ft=man ts=8 nomod nolist norelativenumber nonu noma\" -c \"normal L\" -c \"nmap q :qa<CR>\"</dev/tty <(col -b)"'
 
-### SET VI MODE ###
+
+### VI MODE ###
 function fish_user_key_bindings
     fish_vi_key_bindings
 end
+
 
 ### AUTOCOMPLETE AND HIGHLIGHT COLORS ###
 set fish_color_normal brcyan
@@ -25,6 +29,7 @@ set fish_color_autosuggestion '#7d7d7d'
 set fish_color_command brcyan
 set fish_color_error '#ff6c6b'
 set fish_color_param brcyan
+
 
 ### ALIASES ###
 # navigation
@@ -34,11 +39,16 @@ alias .3='cd ../../..'
 alias .4='cd ../../../..'
 alias .5='cd ../../../../..'
 
-# Changing "ls" to "exa"
+alias tutdir="cd /home/ton1czech/CODING/Tutorials"
+alias ptsdir="cd /home/ton1czech/CODING/Projects"
+alias gngdir="cd /home/ton1czech/CODING/Projects/Python/Python3/gingy"
+alias cvddir="cd /home/ton1czech/CODING/Projects/JavaScript/React/covid19"
+
+# changing "ls" to "exa"
 alias ls='exa -lah --color=always --group-directories-first'
 alias lt='exa -aT --color=always --group-directories-first'
 
-# Colorize grep output (good for log files)
+# colorize grep output (good for log files)
 alias grep='grep --color=auto'
 alias egrep='egrep --color=auto'
 alias fgrep='fgrep --color=auto'
@@ -48,18 +58,23 @@ alias cp="cp -i"
 alias mv='mv -i'
 alias rm='rm -i'
 
-## get top process eating memory
+# top process eating memory
 alias psmem='ps auxf | sort -nr -k 4'
 alias psmem10='ps auxf | sort -nr -k 4 | head -10'
 
-## get top process eating cpu ##
+# top process eating cpu ##
 alias pscpu='ps auxf | sort -nr -k 3'
 alias pscpu10='ps auxf | sort -nr -k 3 | head -10'
 
-# switch between shells
-alias tobash="sudo chsh $USER -s /bin/bash && echo 'Now log out.'"
-alias tozsh="sudo chsh $USER -s /bin/zsh && echo 'Now log out.'"
-alias tofish="sudo chsh $USER -s /bin/fish && echo 'Now log out.'"
+# custom git commands
+alias gS="git pull"
+alias gA="git add ."
+alias gC="git commit -m '"
+alias gP="git push -u origin master"
+
+# sync .files inside git repository Dotfiles
+alias config="/usr/bin/git --git-dir=$HOME/Dotfiles --work-tree=$HOME"
+
 
 ### ZASHIMI STYLE ###
 function fish_prompt
