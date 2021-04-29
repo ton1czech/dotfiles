@@ -1,0 +1,58 @@
+{
+    "files.enableTrash": false,
+    "python.terminal.executeInFileDir": true,
+    "editor.acceptSuggestionOnEnter": "off",
+    "workbench.iconTheme": "material-icon-theme",
+    "workbench.colorTheme": "Dracula",
+    "C_Cpp.updateChannel": "Insiders",
+    "workbench.editorAssociations": [
+        {
+            "viewType": "jupyter.notebook.ipynb",
+            "filenamePattern": "*.ipynb"
+        }
+    ],
+    "javascript.updateImportsOnFileMove.enabled": "never",
+    "[javascriptreact]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
+    "liveSassCompile.settings.autoprefix": [],
+    "liveSassCompile.settings.generateMap": false,
+    "editor.formatOnSave": true,
+    "[go]": {
+
+        "editor.insertSpaces": false,
+        "editor.formatOnSave": false,
+        "editor.codeActionsOnSave": {
+            "source.organizeImports": false
+        }
+    },
+    "python.formatting.provider": "none",
+    "editor.fontFamily": "'Fira Code', 'Consolas', 'Courier New', monospace",
+    "editor.fontLigatures": true,
+    "indentRainbow.colorOnWhiteSpaceOnly": true,
+    "prettier.printWidth": 120,
+    "prettier.jsxSingleQuote": true,
+    "window.zoomLevel": 2,
+    "[c]": {
+        "editor.wordBasedSuggestions": false,
+        "editor.suggest.insertMode": "replace",
+        "editor.semanticHighlighting.enabled": true
+    },
+    "[vue]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode",
+        "editor.formatOnSave": true
+    },
+    "[css]": {
+        "editor.suggest.insertMode": "replace",
+        "gitlens.codeLens.scopes": [
+            "document"
+        ]
+    },
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
+    "csharp.format.enable": false,
+    "vetur.format.options.useTabs": true,
+    "javascript.format.placeOpenBraceOnNewLineForControlBlocks": true,
+    "prettier.vueIndentScriptAndStyle": true,
+    "javascript.preferences.quoteStyle": "single",
+    "prettier.singleQuote": true
+}
