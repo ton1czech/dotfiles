@@ -56,9 +56,6 @@ def window_to_next_group(qtile):
         qtile.currentWindow.togroup(qtile.groups[i + 1].name)
 
 keys = [
-
-# Most of our keybindings are in sxhkd file - except these
-
 # SUPER + FUNCTION KEYS
     Key([mod], "F1", lazy.spawn("firefox")),
     Key([mod], "F2", lazy.spawn("qutebrowser")),
@@ -68,18 +65,15 @@ keys = [
     Key([mod], "F6", lazy.spawn("discord")),
 
 # SUPER + ... KEYS
-
     Key([mod], "f", lazy.window.toggle_fullscreen()),
     Key([mod], "q", lazy.window.kill()),
     Key([mod], "BackSpace", lazy.spawn(term+" -e fish")),
     Key([mod], "Return", lazy.spawn(term)),
 
 # SUPER + SHIFT KEYS
-
     Key([mod, "shift"], "q", lazy.window.kill()),
     Key([mod, "shift"], "r", lazy.restart()),
     Key([mod, "shift"], "Return", lazy.spawn("dmenu_run -p 'Run: '")),
-
 
 # QTILE LAYOUT KEYS
     Key([mod], "n", lazy.layout.normalize()),
@@ -91,30 +85,9 @@ keys = [
     Key([mod], "h", lazy.layout.left()),
     Key([mod], "l", lazy.layout.right()),
 
-
 # RESIZE UP, DOWN, LEFT, RIGHT
-    Key([mod, "control"], "h",
-        lazy.layout.grow_right(),
-        lazy.layout.grow(),
-        lazy.layout.increase_ratio(),
-        lazy.layout.delete(),
-        ),
-    Key([mod, "control"], "l",
-        lazy.layout.grow_left(),
-        lazy.layout.shrink(),
-        lazy.layout.decrease_ratio(),
-        lazy.layout.add(),
-        ),
-    Key([mod, "control"], "j",
-        lazy.layout.grow_up(),
-        lazy.layout.grow(),
-        lazy.layout.decrease_nmaster(),
-        ),
-    Key([mod, "control"], "k",
-        lazy.layout.grow_down(),
-        lazy.layout.shrink(),
-        lazy.layout.increase_nmaster(),
-        ),
+    Key([mod, mod2], "k", lazy.layout.shrink(), lazy.layout.decrease_nmaster()),
+    Key([mod, mod2], "j", lazy.layout.grow(), lazy.layout.increase_nmaster()),
 
 # FLIP LAYOUT FOR MONADTALL/MONADWIDE
     Key([mod], "c", lazy.layout.flip()),
@@ -136,11 +109,11 @@ keys = [
     Key([mod, "shift"], "j", lazy.layout.shuffle_down()),
     Key([mod, "shift"], "h", lazy.layout.swap_left()),
     Key([mod, "shift"], "l", lazy.layout.swap_right()),
-
     ]
 
 
-# FOR QWERTY KEYBOARDS
+
+# GROUPS
 group_names = [("1", {'layout': 'monadtall'}),
            ("2", {'layout': 'monadtall'}),
            ("3", {'layout': 'monadtall'}),
@@ -175,8 +148,9 @@ layouts = [
     layout.Max(**layout_theme)
 ]
 
-# COLORS FOR THE BAR
 
+
+# COLORS FOR THE BAR
 def init_colors():
     return [["#ff00cc", "#333399"], # color 0   # Cosmic Fusion
             ["#100c08", "#100c08"], # color 1   # Smoky Black
@@ -197,8 +171,8 @@ def init_colors():
 colors = init_colors()
 
 
-# WIDGETS FOR THE BAR
 
+# WIDGETS FOR THE BAR
 def init_widgets_defaults():
     return dict(font="Noto Sans",
                 fontsize = 12,
@@ -369,11 +343,6 @@ def init_widgets_list():
                         fontsize = 12,
                         format="%Y-%m-%d %H:%M:%S"
                         ),
-               #widget.Systray(
-               #         background=colors[1],
-               #         icon_size=20,
-               #         padding = 4
-               #         ),
               ]
     return widgets_list
 
