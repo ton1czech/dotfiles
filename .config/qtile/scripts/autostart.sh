@@ -24,11 +24,10 @@ function run {
 run dex $HOME/.config/autostart/arcolinux-welcome-app.desktop &
 
 #Some ways to set your wallpaper besides variety or nitrogen
-nitrogen --restore &
+nitrogen --set-zoom-fill --random /home/ton1czech/Pictures/Wallpapers/ &
 
 #start sxhkd to replace Qtile native key-bindings
 run sxhkd -c ~/.config/qtile/sxhkd/sxhkdrc &
-
 
 #starting utility applications at boot time
 run variety &
