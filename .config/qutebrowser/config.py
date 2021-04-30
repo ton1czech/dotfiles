@@ -26,6 +26,7 @@ c.aliases = {'q': 'quit', 'w': 'session-save', 'wq': 'quit --save'}
 
 c.url.searchengines = {'DEFAULT': 'https://duckduckgo.com/?q={}', 
                        'aw': 'https://wiki.archlinux.org/?search={}',
-                       'wp': 'https://wikipedia.com/wiki/{}'}
+                       'wp': 'https://wikipedia.com/wiki/{}',
+                       'rd': 'https://reddit.com/search/?q={}'}
 
 #config.set("colors.webpage.darkmode.enabled", True)
