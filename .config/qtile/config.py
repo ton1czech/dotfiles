@@ -67,6 +67,7 @@ keys = [
 # SUPER + ... KEYS
     Key([mod], "f", lazy.window.toggle_fullscreen()),
     Key([mod], "q", lazy.window.kill()),
+    Key([mod], "x", lazy.spawn("arcolinux-logout")),
     Key([mod], "BackSpace", lazy.spawn(term+" -e fish")),
     Key([mod], "Return", lazy.spawn(term)),
 

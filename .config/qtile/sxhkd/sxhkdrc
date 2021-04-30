@@ -7,8 +7,8 @@
 #################################################################
 
 #arcolinux-logout
-super + x
-    arcolinux-logout
+#super + x
+#    arcolinux-logout
 
 #################################################################
 # CONTROL + ALT KEYS
