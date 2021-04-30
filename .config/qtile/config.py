@@ -74,6 +74,7 @@ keys = [
 # SUPER + SHIFT KEYS
     Key([mod, "shift"], "q", lazy.window.kill()),
     Key([mod, "shift"], "r", lazy.restart()),
+    Key([mod, "shift"], "w", lazy.spawn('nitrogen')),
     Key([mod, "shift"], "Return", lazy.spawn("dmenu_run -p 'Run: '")),
 
 # QTILE LAYOUT KEYS
@@ -87,8 +88,8 @@ keys = [
     Key([mod], "l", lazy.layout.right()),
 
 # RESIZE UP, DOWN, LEFT, RIGHT
-    Key([mod, mod2], "k", lazy.layout.shrink(), lazy.layout.decrease_nmaster()),
-    Key([mod, mod2], "j", lazy.layout.grow(), lazy.layout.increase_nmaster()),
+    Key([mod, mod2], "j", lazy.layout.shrink(), lazy.layout.decrease_nmaster()),
+    Key([mod, mod2], "k", lazy.layout.grow(), lazy.layout.increase_nmaster()),
 
 # FLIP LAYOUT FOR MONADTALL/MONADWIDE
     Key([mod], "c", lazy.layout.flip()),
