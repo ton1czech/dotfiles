@@ -88,8 +88,8 @@ keys = [
     Key([mod], "l", lazy.layout.right()),
 
 # RESIZE UP, DOWN, LEFT, RIGHT
-    Key([mod, mod2], "j", lazy.layout.shrink(), lazy.layout.decrease_nmaster()),
-    Key([mod, mod2], "k", lazy.layout.grow(), lazy.layout.increase_nmaster()),
+    Key([mod, mod2], "h", lazy.layout.shrink(), lazy.layout.decrease_nmaster()),
+    Key([mod, mod2], "l", lazy.layout.grow(), lazy.layout.increase_nmaster()),
 
 # FLIP LAYOUT FOR MONADTALL/MONADWIDE
     Key([mod], "c", lazy.layout.flip()),
@@ -112,8 +112,6 @@ keys = [
     Key([mod, "shift"], "h", lazy.layout.swap_left()),
     Key([mod, "shift"], "l", lazy.layout.swap_right()),
     ]
-
-
 
 # GROUPS
 group_names = [("1", {'layout': 'monadtall'}),
@@ -226,6 +224,10 @@ def init_widgets_list():
                         foreground = colors[5],
                         background = colors[1],
                         ),
+               widget.Systray(
+                        background = colors[1],
+                        padding = 4,
+                        ),
                widget.TextBox(
                        font="Ubuntu Bold",
                        text = " ₿",
@@ -315,7 +317,7 @@ def init_widgets_list():
                        distro = "Arch_checkupdates",
                        display_format = "{updates} Updates",
                        foreground = colors[6],
-                       mouse_callbacks = {'Button1': lambda: qtile.cmd_spawn(myTerm + ' -e sudo pacman -Syyu')},
+                       mouse_callbacks = {'Button1': lazy.spawn(term + ' -e sudo pacman -Syyu')},
                        background = colors[3]
                        ),
                widget.TextBox(
@@ -339,7 +341,7 @@ def init_widgets_list():
                         fontsize=16
                         ),
                widget.Clock(
-                       font="Ubuntu",
+                        font="Ubuntu",
                         foreground = colors[1],
                         background = colors[7],
                         fontsize = 12,
