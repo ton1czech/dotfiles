@@ -133,8 +133,8 @@ for i, (name, kwargs) in enumerate(group_names, 1):
 def init_layout_theme():
     return {"margin":8,
             "border_width":2,
-            "border_focus": "#1cefff",
-            "border_normal": "#c0c0aa"
+            "border_focus": "#fe428e",
+            "border_normal": "#141321"
             }
 
 layout_theme = init_layout_theme()
@@ -152,13 +152,12 @@ layouts = [
 
 # COLORS FOR THE BAR
 def init_colors():
-    return [["#ff00cc", "#333399"], # color 0   # Cosmic Fusion
-            ["#100c08", "#100c08"], # color 1   # Smoky Black
-            ["#fceabb", "#f8b500"], # color 2   # Sun on the Horizon
-            ["#41295a", "#2f0743"], # color 3   # 80s Purple
-            ["#1e3c72", "#2a5298"], # color 4   # Joomla
+    return [["#141321", "#141321"], # color 0   # Ansi Black
+            ["#fe428e", "#fe428e"], # color 1   # Magenta
+            ["#4ab2b7", "#4ab2b7"], # color 2   # Ansi Dark Cyan
+            ["#f2f2f2", "#f2f2f2"], # color 3   # Ice White
+            ["#f8d847", "#f8d847"], # color 4   # Ansi Bright Yellow
             ["#c0c0aa", "#c0c0aa"], # color 5   # Cocoa
-            ["#e1e7e4", "#e1e7e4"], # color 6   # Ice White
             ["#a1ffce", "#faffd1"], # color 7   # Limeade
             ["#141e30", "#243b55"], # color 8   # Royal
             ["#1cefff", "#1cefff"], # color 9   # Ice
@@ -177,14 +176,15 @@ def init_widgets_defaults():
     return dict(font="Noto Sans",
                 fontsize = 12,
                 padding = 2,
-                background=colors[1])
+                background=colors[0])
 
 widget_defaults = init_widgets_defaults()
 
 def init_widgets_list():
     prompt = "{0}@{1}: ".format(os.environ["USER"], socket.gethostname())
     widgets_list = [
-               widget.GroupBox(font="Ubuntu Bold",
+               widget.GroupBox(
+                        font="Ubuntu Bold",
                         fontsize = 18,
                         margin_y = 2.5,
                         margin_x = 0,
@@ -192,158 +192,156 @@ def init_widgets_list():
                         padding_x = 5,
                         borderwidth = 0,
                         disable_drag = True,
-                        active = colors[5],
-                        inactive = colors[5],
+                        active = colors[3],
+                        inactive = colors[3],
                         rounded = False,
                         highlight_method = "text",
-                        this_current_screen_border = colors[9],
-                        foreground = colors[9],
-                        background = colors[1]
+                        this_current_screen_border = colors[1],
+                        foreground = colors[1],
+                        background = colors[0]
                         ),
                widget.Sep(
-                        linewidth = 1,
+                        linewidth = 2,
                         padding = 10,
-                        foreground = colors[5],
-                        background = colors[1]
+                        foreground = colors[2],
+                        background = colors[0]
                         ),
                widget.CurrentLayout(
                         font = "Ubuntu Bold",
                         fontsize = 15,
-                        foreground = colors[11],
-                        background = colors[1]
+                        foreground = colors[4],
+                        background = colors[0]
                         ),
                widget.Sep(
-                        linewidth = 1,
+                        linewidth = 2,
                         padding = 10,
-                        foreground = colors[5],
-                        background = colors[1]
+                        foreground = colors[2],
+                        background = colors[0]
                         ),
-               widget.WindowName(
+              widget.WindowName(
                         font="Ubuntu",
                         fontsize = 12,
-                        foreground = colors[5],
-                        background = colors[1],
+                        foreground = colors[3],
+                        background = colors[0],
                         ),
-               widget.Systray(
-                        background = colors[1],
-                        padding = 4,
+               widget.Sep(
+                        linewidth = 2,
+                        padding = 10,
+                        foreground = colors[2],
+                        background = colors[0]
                         ),
                widget.TextBox(
-                       font="Ubuntu Bold",
-                       text = " ₿",
-                       padding = 0,
-                       foreground = colors[1],
-                       background = colors[2],
-                       fontsize = 16
-                       ),
-               widget.BitcoinTicker(
-                       font="Ubuntu",
-                       foreground = colors[1],
-                       background = colors[2],
-                       padding = 7
-                       ),
-               widget.TextBox(
-                       font="Ubuntu Bold",
-                       text = "☂",
-                       padding = 3,
-                       foreground = colors[1],
-                       background = colors[13],
-                       fontsize = 16
-                       ),
+                        font="Ubuntu Bold",
+                        text = "☂",
+                        padding = 3,
+                        foreground = colors[1],
+                        background = colors[0],
+                        fontsize = 16
+                        ),
                widget.OpenWeather(
-                       app_key = '95903b10ac9f405b5b7aa02feb8717e5',
-                       cityid = 3062351,
-                       foreground = colors[1],
-                       background = colors[13],
-                       format = "{location_city}: {main_temp}°{units_temperature}  {weather_details}"
-                       ),
+                        app_key = '95903b10ac9f405b5b7aa02feb8717e5',
+                        cityid = 3062351,
+                        foreground = colors[1],
+                        background = colors[0],
+                        format = "{location_city}: {main_temp}°{units_temperature}  {weather_details}"
+                        ),
+               widget.Sep(
+                        linewidth = 2,
+                        padding = 10,
+                        foreground = colors[2],
+                        background = colors[0]
+                        ),
                widget.TextBox(
-                       font="Ubuntu Bold",
-                       text = "↑",
-                       foreground = colors[6],
-                       background = colors[8],
-                       padding = 0,
-                       fontsize = 16
-                       ),
+                        font="Ubuntu Bold",
+                        text = "↑",
+                        foreground = colors[1],
+                        background = colors[0],
+                        padding = 0,
+                        fontsize = 16
+                        ),
                widget.CPU(
-                       font="Ubuntu",
-                       foreground = colors[6],
-                       background = colors[8],
-                       mouse_callbacks = {'Button1': lambda: qtile.cmd_spawn(myTerm + ' -e htop')},
-                       format="{freq_current}GHz | {load_percent}%"
-                       ),
+                        font="Ubuntu",
+                        foreground = colors[1],
+                        background = colors[0],
+                        format="{freq_current}GHz | {load_percent}%"
+                        ),
+               widget.Sep(
+                        linewidth = 2,
+                        padding = 10,
+                        foreground = colors[2],
+                        background = colors[0]
+                        ),
                widget.TextBox(
-                       font="Ubuntu Bold",
-                       text = " 🖬",
-                       foreground = colors[6],
-                       background = colors[10],
-                       padding = 0,
-                       fontsize = 16
-                       ),
+                        font="Ubuntu Bold",
+                        text = " 🖬",
+                        foreground = colors[1],
+                        background = colors[0],
+                        padding = 0,
+                        fontsize = 16
+                        ),
               widget.Memory(
-                       font="Ubuntu",
-                       foreground = colors[6],
-                       background = colors[10],
-                       mouse_callbacks = {'Button1': lambda: qtile.cmd_spawn(myTerm + ' -e htop')},
-                       padding = 5
-                       ),
+                        font="Ubuntu",
+                        foreground = colors[1],
+                        background = colors[0],
+                        padding = 5
+                        ),
+               widget.Sep(
+                        linewidth = 2,
+                        padding = 10,
+                        foreground = colors[2],
+                        background = colors[0]
+                        ),
                widget.TextBox(
-                       font="Ubuntu Bold",
-                       text = "🌡",
-                       padding = 2,
-                       foreground = colors[6],
-                       background = colors[4],
-                       fontsize = 12
-                       ),
+                        font="Ubuntu Bold",
+                        text = "🌡",
+                        padding = 2,
+                        foreground = colors[1],
+                        background = colors[0],
+                        fontsize = 12
+                        ),
                widget.ThermalSensor(
-                       font="Ubuntu",
-                       foreground = colors[6],
-                       background = colors[4],
-                       threshold = 90,
-                       padding = 5,
-                       mouse_callbacks = {'Button1': lambda: qtile.cmd_spawn(myTerm + ' -e htop')},
-                       ),
-               widget.TextBox(
-                       font="Ubuntu Bold",
-                       text = "♻",
-                       padding = 2,
-                       foreground = colors[6],
-                       background = colors[3],
-                       fontsize = 16
-                       ),
-               widget.CheckUpdates(
-                       font="Ubuntu",
-                       update_interval = 1800,
-                       distro = "Arch_checkupdates",
-                       display_format = "{updates} Updates",
-                       foreground = colors[6],
-                       mouse_callbacks = {'Button1': lazy.spawn(term + ' -e sudo pacman -Syyu')},
-                       background = colors[3]
-                       ),
+                        font="Ubuntu",
+                        foreground = colors[1],
+                        background = colors[0],
+                        threshold = 90,
+                        padding = 5,
+                        ),
+               widget.Sep(
+                        linewidth = 2,
+                        padding = 10,
+                        foreground = colors[2],
+                        background = colors[0]
+                        ),
                widget.TextBox(
                         font="Ubuntu Bold",
                         text="🔊",
-                        foreground=colors[6],
-                        background=colors[12],
+                        foreground = colors[1],
+                        background = colors[0],
                         padding = 4,
                         fontsize=16
                         ),
                widget.Volume(
-                        foreground = colors[6],
-                        background = colors[12],
+                        foreground = colors[1],
+                        background = colors[0],
+                        ),
+               widget.Sep(
+                        linewidth = 2,
+                        padding = 10,
+                        foreground = colors[2],
+                        background = colors[0]
                         ),
                widget.TextBox(
                         font="Ubuntu Bold",
                         text="",
                         foreground=colors[1],
-                        background=colors[7],
+                        background=colors[0],
                         padding = 5,
                         fontsize=16
                         ),
                widget.Clock(
                         font="Ubuntu",
                         foreground = colors[1],
-                        background = colors[7],
+                        background = colors[0],
                         fontsize = 12,
                         format="%Y-%m-%d %H:%M:%S"
                         ),
