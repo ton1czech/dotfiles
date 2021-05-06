@@ -69,7 +69,7 @@ alias pscpu10='ps auxf | sort -nr -k 3 | head -10'
 # custom git commands
 alias gS="git pull"
 alias gA="git add ."
-alias gC="git commit -m '"
+alias gC="git commit -m"
 alias gP="git push -u origin master"
 
 # sync .files inside git repository Dotfiles
