@@ -29,12 +29,13 @@ Plug 'scrooloose/nerdtree'
 Plug 'airblade/vim-gitgutter'
 Plug 'valloric/youcompleteme'
 Plug 'kien/ctrlp.vim'
+Plug 'dracula/vim'
 
 call plug#end()
 ":source%
 ":PlugInstall
 
-colorscheme gruvbox
+colorscheme dracula
 
 set background=dark
 
