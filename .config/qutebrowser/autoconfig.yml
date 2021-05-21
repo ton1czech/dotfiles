@@ -6,5 +6,5 @@
 
 config_version: 2
 settings:
-  content.notifications.enabled:
-    https://www.reddit.com: false
+  content.user_stylesheets:
+    global: ~/Documents/solarized-everything-css/css/solarized-light/solarized-light-all-sites.css
