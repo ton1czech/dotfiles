@@ -118,15 +118,11 @@ keys = [
     ]
 
 # GROUPS
-group_names = [("1", {'layout': 'monadtall'}),
-           ("2", {'layout': 'monadtall'}),
-           ("3", {'layout': 'monadtall'}),
-           ("4", {'layout': 'monadtall'}),
-           ("5", {'layout': 'monadtall'}),
-           ("6", {'layout': 'monadtall'}),
-           ("7", {'layout': 'monadtall'}),
-           ("8", {'layout': 'monadtall'}),
-           ("9", {'layout': 'monadtall'})]
+group_names = [("", {'layout': 'monadtall'}),
+                ("{ }", {'layout': 'monadtall'}),
+                ("", {'layout': 'monadtall'}),
+                ("🎶", {'layout': 'monadtall'}),
+                ("✈", {'layout': 'monadtall'})]
 
 groups = [Group(name, **kwargs) for name, kwargs in group_names]
 
@@ -347,8 +343,8 @@ widgets_screen2 = init_widgets_screen2()
 
 
 def init_screens():
-    return [Screen(top=bar.Bar(widgets=init_widgets_screen1(), size=26, border_radius=40, opacity=0.95, margin=[8,8,0,8])),
-            Screen(top=bar.Bar(widgets=init_widgets_screen2(), size=26, border_radius=40, opacity=0.95, margin=[8,8,0,8]))]
+    return [Screen(top=bar.Bar(widgets=init_widgets_screen1(), size=26, border_radius=40, opacity=0.95, margin=[4,8,0,8])),
+            Screen(top=bar.Bar(widgets=init_widgets_screen2(), size=26, border_radius=40, opacity=0.95, margin=[4,8,0,8]))]
 screens = init_screens()
 
 
