@@ -152,13 +152,11 @@ screens = [
                                 [
                                         widget.CurrentLayoutIcon(
                                                 custom_icon_paths=[os.path.expanduser("~/.config/qtile/icons")],
-                                                scale = 0.65,
+                                                scale = 0.7,
+                                                padding = 5
                                                 ),
-                                        widget.Sep(
-                                                linewidth = 2,
-                                                padding = 10,
-                                                foreground = colors[2],
-                                                background = colors[0]
+                                        widget.Spacer(
+                                                length = 20 
                                                 ),
                                         widget.GroupBox(
                                                 font="FontAwesome",
@@ -177,6 +175,14 @@ screens = [
                                                 background = colors[0]
                                                 ),
                                         widget.Spacer(),
+                                        widget.TextBox(
+                                                font="FontAwesome",
+                                                text = "◆",
+                                                padding = 3,
+                                                foreground = colors[5],
+                                                background = colors[0],
+                                                fontsize = 16
+                                                ),
                                         widget.Clock(
                                                 font="Ubuntu Bold",
                                                 foreground=colors[5],
@@ -184,9 +190,17 @@ screens = [
                                                 fontsize=14,
                                                 format='%H:%M:%S'
                                                 ),
+                                        widget.TextBox(
+                                                font="FontAwesome",
+                                                text = "◆",
+                                                padding = 3,
+                                                foreground = colors[5],
+                                                background = colors[0],
+                                                fontsize = 16
+                                                ),
                                         widget.Spacer(),
                                         widget.Sep(
-                                                linewidth = 2,
+                                                linewidth = 1,
                                                 padding = 10,
                                                 foreground = colors[2],
                                                 background = colors[0]
@@ -200,6 +214,7 @@ screens = [
                                                 fontsize = 16
                                                 ),
                                         widget.OpenWeather(
+                                                font = "Ubuntu",
                                                 app_key = environ['APP_KEY'],
                                                 cityid = environ['CITY_ID'],
                                                 foreground = colors[1],
@@ -207,12 +222,13 @@ screens = [
                                                 format = "{main_temp}°{units_temperature}"
                                                 ),
                                         widget.Sep(
-                                                linewidth = 2,
+                                                linewidth = 1,
                                                 padding = 10,
                                                 foreground = colors[2],
                                                 background = colors[0]
                                                 ),
                                         widget.TextBox(
+                                                font = "FontAwesome",
                                                 text = "↑",
                                                 foreground = colors[1],
                                                 background = colors[0],
@@ -226,12 +242,13 @@ screens = [
                                                 format="{freq_current}GHz | {load_percent}%"
                                                 ),
                                         widget.Sep(
-                                                linewidth = 2,
+                                                linewidth = 1,
                                                 padding = 10,
                                                 foreground = colors[2],
                                                 background = colors[0]
                                                 ),
                                         widget.TextBox(
+                                                font = "FontAwesome",
                                                 text = " 🖬",
                                                 foreground = colors[1],
                                                 background = colors[0],
@@ -245,12 +262,13 @@ screens = [
                                                 padding = 5
                                                 ),
                                         widget.Sep(
-                                                linewidth = 2,
+                                                linewidth = 1,
                                                 padding = 10,
                                                 foreground = colors[2],
                                                 background = colors[0]
                                                 ),
                                         widget.TextBox(
+                                                font = "FontAwesome",
                                                 text = "🌡",
                                                 padding = 2,
                                                 foreground = colors[1],
@@ -265,12 +283,13 @@ screens = [
                                                 padding = 5,
                                                 ),
                                         widget.Sep(
-                                                linewidth = 2,
+                                                linewidth = 1,
                                                 padding = 10,
                                                 foreground = colors[2],
                                                 background = colors[0]
                                                 ),
                                         widget.TextBox(
+                                                font = "FontAwesome",
                                                 text="🔊",
                                                 foreground = colors[1],
                                                 background = colors[0],
@@ -282,12 +301,13 @@ screens = [
                                                 background = colors[0],
                                                 ),
                                         widget.Sep(
-                                                linewidth = 2,
+                                                linewidth = 1,
                                                 padding = 10,
                                                 foreground = colors[2],
                                                 background = colors[0]
                                                 ),
                                         widget.TextBox(
+                                                font = "FontAwesome",
                                                 text="",
                                                 foreground=colors[1],
                                                 background=colors[0],
@@ -299,7 +319,8 @@ screens = [
                                                 foreground = colors[1],
                                                 background = colors[0],
                                                 fontsize = 12,
-                                                format="%d-%m"
+                                                format="%d-%m",
+                                                padding = 5
                                                 ),
                                 ],
                                 size=26,
