@@ -297,6 +297,7 @@ screens = [
                                                 fontsize=16
                                                 ),
                                         widget.Volume(
+                                                font = "Ubuntu",
                                                 foreground = colors[1],
                                                 background = colors[0],
                                                 ),
