@@ -133,8 +133,8 @@ for i, (name, kwargs) in enumerate(group_names, 1):
 def init_layout_theme():
     return {"margin":8,
             "border_width":2,
-            "border_focus": "#fe428e",
-            "border_normal": "#141321"
+            "border_focus": "#FF79C6",
+            "border_normal": "#6272A4"
             }
 
 layout_theme = init_layout_theme()
@@ -152,19 +152,19 @@ layouts = [
 
 # COLORS FOR THE BAR
 def init_colors():
-    return [["#141321", "#141321"], # color 0   # Ansi Black
-            ["#fe428e", "#fe428e"], # color 1   # Magenta
-            ["#4ab2b7", "#4ab2b7"], # color 2   # Ansi Dark Cyan
-            ["#f2f2f2", "#f2f2f2"], # color 3   # Ice White
-            ["#f8d847", "#f8d847"], # color 4   # Ansi Bright Yellow
-            ["#c0c0aa", "#c0c0aa"], # color 5   # Cocoa
-            ["#a1ffce", "#faffd1"], # color 7   # Limeade
-            ["#141e30", "#243b55"], # color 8   # Royal
-            ["#1cefff", "#1cefff"], # color 9   # Ice
-            ["#000428", "#004e92"], # color 10  # Frost
-            ["#e90079", "#be0062"], # color 11  # Flickr
-            ["#8e2de2", "#4a00e0"], # color 12  # Amin
-            ["#56ccf2", "#2f80ed"]]  # color 13  # Blue Skies
+    return [["#282A36", "#282A36"], # 0   # BACKGROUND
+            ["#FF79C6", "#FF79C6"], # 1   # PURPLE
+            ["#8BE9FD", "#8BE9FD"], # 2   # CYAN
+            ["#f2f2f2", "#f2f2f2"], # 3   # Ice White
+            ["#F1FA8C", "#F1FA8C"], # 4   # YELLOW
+            ["#c0c0aa", "#c0c0aa"], # 5   # Cocoa
+            ["#a1ffce", "#faffd1"], # 7   # Limeade
+            ["#141e30", "#243b55"], # 8   # Royal
+            ["#1cefff", "#1cefff"], # 9   # Ice
+            ["#000428", "#004e92"], # 10  # Frost
+            ["#e90079", "#be0062"], # 11  # Flickr
+            ["#8e2de2", "#4a00e0"], # 12  # Amin
+            ["#56ccf2", "#2f80ed"]] #color 13  # Blue Skies
 
 
 colors = init_colors()
@@ -184,14 +184,13 @@ def init_widgets_list():
     prompt = "{0}@{1}: ".format(os.environ["USER"], socket.gethostname())
     widgets_list = [
                widget.GroupBox(
-                        font="Ubuntu Bold",
-                        fontsize = 18,
+                        font="FontAwesome",
+                        fontsize = 16,
                         margin_y = 2.5,
                         margin_x = 0,
                         padding_y = 6,
                         padding_x = 5,
                         borderwidth = 0,
-                        disable_drag = True,
                         active = colors[3],
                         inactive = colors[3],
                         rounded = False,
@@ -364,8 +363,8 @@ widgets_screen2 = init_widgets_screen2()
 
 
 def init_screens():
-    return [Screen(top=bar.Bar(widgets=init_widgets_screen1(), size=26, opacity=0.8)),
-            Screen(top=bar.Bar(widgets=init_widgets_screen2(), size=26, opacity=0.8))]
+    return [Screen(top=bar.Bar(widgets=init_widgets_screen1(), size=26, border_radius=40, opacity=0.95, margin=[8,8,0,8])),
+            Screen(top=bar.Bar(widgets=init_widgets_screen2(), size=26, border_radius=40, opacity=0.95, margin=[8,8,0,8]))]
 screens = init_screens()
 
 
