@@ -29,11 +29,15 @@ import os
 import re
 import socket
 import subprocess
+from os import environ
+from dotenv import load_dotenv
 from libqtile import qtile
 from libqtile.config import Drag, Key, Screen, Group, Drag, Click, Rule
 from libqtile.command import lazy
 from libqtile import layout, bar, widget, hook
 from libqtile.widget import Spacer
+
+load_dotenv()
 
 #mod4 or mod = super key
 mod = "mod4"
@@ -153,19 +157,10 @@ layouts = [
 # COLORS FOR THE BAR
 def init_colors():
     return [["#282A36", "#282A36"], # 0   # BACKGROUND
-            ["#FF79C6", "#FF79C6"], # 1   # PURPLE
-            ["#8BE9FD", "#8BE9FD"], # 2   # CYAN
-            ["#f2f2f2", "#f2f2f2"], # 3   # Ice White
-            ["#F1FA8C", "#F1FA8C"], # 4   # YELLOW
-            ["#c0c0aa", "#c0c0aa"], # 5   # Cocoa
-            ["#a1ffce", "#faffd1"], # 7   # Limeade
-            ["#141e30", "#243b55"], # 8   # Royal
-            ["#1cefff", "#1cefff"], # 9   # Ice
-            ["#000428", "#004e92"], # 10  # Frost
-            ["#e90079", "#be0062"], # 11  # Flickr
-            ["#8e2de2", "#4a00e0"], # 12  # Amin
-            ["#56ccf2", "#2f80ed"]] #color 13  # Blue Skies
-
+            ["#FF79C6", "#FF79C6"], # 1   # PINK
+            ["#BD93F9", "#BD93F9"], # 2   # PURPLE
+            ["#6272A4", "#6272A4"], # 3   # COMMENT
+            ["#FFB86C", "#FFB86C"]] # 4   # ORANGE
 
 colors = init_colors()
 
@@ -211,18 +206,7 @@ def init_widgets_list():
                         foreground = colors[4],
                         background = colors[0]
                         ),
-               widget.Sep(
-                        linewidth = 2,
-                        padding = 10,
-                        foreground = colors[2],
-                        background = colors[0]
-                        ),
-              widget.WindowName(
-                        font="Ubuntu",
-                        fontsize = 12,
-                        foreground = colors[3],
-                        background = colors[0],
-                        ),
+               widget.Spacer(),
                widget.Sep(
                         linewidth = 2,
                         padding = 10,
@@ -230,7 +214,7 @@ def init_widgets_list():
                         background = colors[0]
                         ),
                widget.TextBox(
-                        font="Ubuntu Bold",
+                        font="FontAwesome",
                         text = "☂",
                         padding = 3,
                         foreground = colors[1],
@@ -238,11 +222,11 @@ def init_widgets_list():
                         fontsize = 16
                         ),
                widget.OpenWeather(
-                        app_key = '95903b10ac9f405b5b7aa02feb8717e5',
-                        cityid = 3062351,
+                        app_key = environ['APP_KEY'],
+                        cityid = environ['CITY_ID'],
                         foreground = colors[1],
                         background = colors[0],
-                        format = "{location_city}: {main_temp}°{units_temperature}  {weather_details}"
+                        format = "{main_temp}°{units_temperature}"
                         ),
                widget.Sep(
                         linewidth = 2,
