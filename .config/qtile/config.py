@@ -142,10 +142,8 @@ layout_theme = init_layout_theme()
 
 layouts = [
     layout.MonadTall(**layout_theme),
-    layout.RatioTile(**layout_theme),
     layout.Matrix(**layout_theme),
-    layout.Bsp(**layout_theme),
-    layout.Max(**layout_theme)
+    layout.Max(**layout_theme),
 ]
 
 
@@ -156,7 +154,8 @@ def init_colors():
             ["#FF79C6", "#FF79C6"], # 1   # PINK
             ["#BD93F9", "#BD93F9"], # 2   # PURPLE
             ["#6272A4", "#6272A4"], # 3   # COMMENT
-            ["#FFB86C", "#FFB86C"]] # 4   # ORANGE
+            ["#FFB86C", "#FFB86C"], # 4   # ORANGE
+            ["#50FA7B", "#50FA7B"]] # 5   # GREEN 
 
 colors = init_colors()
 
@@ -174,7 +173,17 @@ widget_defaults = init_widgets_defaults()
 def init_widgets_list():
     prompt = "{0}@{1}: ".format(os.environ["USER"], socket.gethostname())
     widgets_list = [
-               widget.GroupBox(
+                widget.CurrentLayoutIcon(
+                        custom_icon_paths=[os.path.expanduser("~/.config/qtile/icons")],
+                        scale = 0.65,
+                        ),
+                widget.Sep(
+                        linewidth = 2,
+                        padding = 10,
+                        foreground = colors[2],
+                        background = colors[0]
+                        ),
+                widget.GroupBox(
                         font="FontAwesome",
                         fontsize = 16,
                         margin_y = 2.5,
@@ -190,26 +199,22 @@ def init_widgets_list():
                         foreground = colors[1],
                         background = colors[0]
                         ),
-               widget.Sep(
+                widget.Spacer(),
+                widget.Clock(
+                        font="Ubuntu Bold",
+                        foreground=colors[5],
+                        background=colors[0],
+                        fontsize=14,
+                        format='%H:%M:%S'
+                        ),
+                widget.Spacer(),
+                widget.Sep(
                         linewidth = 2,
                         padding = 10,
                         foreground = colors[2],
                         background = colors[0]
                         ),
-               widget.CurrentLayout(
-                        font = "Ubuntu Bold",
-                        fontsize = 15,
-                        foreground = colors[4],
-                        background = colors[0]
-                        ),
-               widget.Spacer(),
-               widget.Sep(
-                        linewidth = 2,
-                        padding = 10,
-                        foreground = colors[2],
-                        background = colors[0]
-                        ),
-               widget.TextBox(
+                widget.TextBox(
                         font="FontAwesome",
                         text = "☂",
                         padding = 3,
@@ -217,20 +222,20 @@ def init_widgets_list():
                         background = colors[0],
                         fontsize = 16
                         ),
-               widget.OpenWeather(
+                widget.OpenWeather(
                         app_key = environ['APP_KEY'],
                         cityid = environ['CITY_ID'],
                         foreground = colors[1],
                         background = colors[0],
                         format = "{main_temp}°{units_temperature}"
                         ),
-               widget.Sep(
+                widget.Sep(
                         linewidth = 2,
                         padding = 10,
                         foreground = colors[2],
                         background = colors[0]
                         ),
-               widget.TextBox(
+                widget.TextBox(
                         font="Ubuntu Bold",
                         text = "↑",
                         foreground = colors[1],
@@ -238,19 +243,19 @@ def init_widgets_list():
                         padding = 0,
                         fontsize = 16
                         ),
-               widget.CPU(
+                widget.CPU(
                         font="Ubuntu",
                         foreground = colors[1],
                         background = colors[0],
                         format="{freq_current}GHz | {load_percent}%"
                         ),
-               widget.Sep(
+                widget.Sep(
                         linewidth = 2,
                         padding = 10,
                         foreground = colors[2],
                         background = colors[0]
                         ),
-               widget.TextBox(
+                widget.TextBox(
                         font="Ubuntu Bold",
                         text = " 🖬",
                         foreground = colors[1],
@@ -258,19 +263,19 @@ def init_widgets_list():
                         padding = 0,
                         fontsize = 16
                         ),
-              widget.Memory(
+                widget.Memory(
                         font="Ubuntu",
                         foreground = colors[1],
                         background = colors[0],
                         padding = 5
                         ),
-               widget.Sep(
+                widget.Sep(
                         linewidth = 2,
                         padding = 10,
                         foreground = colors[2],
                         background = colors[0]
                         ),
-               widget.TextBox(
+                widget.TextBox(
                         font="Ubuntu Bold",
                         text = "🌡",
                         padding = 2,
@@ -278,20 +283,20 @@ def init_widgets_list():
                         background = colors[0],
                         fontsize = 12
                         ),
-               widget.ThermalSensor(
+                widget.ThermalSensor(
                         font="Ubuntu",
                         foreground = colors[1],
                         background = colors[0],
                         threshold = 90,
                         padding = 5,
                         ),
-               widget.Sep(
+                widget.Sep(
                         linewidth = 2,
                         padding = 10,
                         foreground = colors[2],
                         background = colors[0]
                         ),
-               widget.TextBox(
+                widget.TextBox(
                         font="Ubuntu Bold",
                         text="🔊",
                         foreground = colors[1],
@@ -299,17 +304,17 @@ def init_widgets_list():
                         padding = 4,
                         fontsize=16
                         ),
-               widget.Volume(
+                widget.Volume(
                         foreground = colors[1],
                         background = colors[0],
                         ),
-               widget.Sep(
+                widget.Sep(
                         linewidth = 2,
                         padding = 10,
                         foreground = colors[2],
                         background = colors[0]
                         ),
-               widget.TextBox(
+                widget.TextBox(
                         font="Ubuntu Bold",
                         text="",
                         foreground=colors[1],
@@ -317,14 +322,14 @@ def init_widgets_list():
                         padding = 5,
                         fontsize=16
                         ),
-               widget.Clock(
+                widget.Clock(
                         font="Ubuntu",
                         foreground = colors[1],
                         background = colors[0],
                         fontsize = 12,
-                        format="%Y-%m-%d %H:%M:%S"
+                        format="%d-%m"
                         ),
-              ]
+                ]
     return widgets_list
 
 widgets_list = init_widgets_list()
