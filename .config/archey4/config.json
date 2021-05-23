@@ -1,0 +1,14 @@
+{
+  "allow_overriding": true,
+  "parallel_loading": true,
+  "suppress_warnings": false,
+  "honor_ansi_color": true,
+  "entries": [
+    { "type": "User" },
+    { "type": "Hostname" },
+    { "type": "Distro" },
+    { "type": "WindowManager" },
+    { "type": "Terminal" }
+  ],
+  "default_strings": {}
+}
