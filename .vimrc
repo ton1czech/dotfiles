@@ -29,15 +29,13 @@ Plug 'scrooloose/nerdtree'
 Plug 'airblade/vim-gitgutter'
 Plug 'valloric/youcompleteme'
 Plug 'kien/ctrlp.vim'
-Plug 'dracula/vim'
+Plug 'dracula/vim', { 'as': 'dracula' }
 
 call plug#end()
 ":source%
 ":PlugInstall
 
-colorscheme dracula
-
-set background=dark
+"colorscheme dracula
 
 if executable('rg')
     let g:rg_derive_root='true'
