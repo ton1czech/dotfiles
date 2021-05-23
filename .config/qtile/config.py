@@ -24,7 +24,6 @@
 # OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 # SOFTWARE.
 
-
 import os
 import re
 import socket
@@ -45,7 +44,6 @@ mod1 = "alt"
 mod2 = "control"
 home = os.path.expanduser('~')
 term = "alacritty"
-
 
 @lazy.function
 def window_to_prev_group(qtile):
@@ -124,8 +122,6 @@ layouts = [
         layout.Max(margin=8, border_width=2, border_focus="#ff79c6", border_normal="#6272a4"),
 ]
 
-
-
 # COLORS FOR THE BAR
 colors = [
                 ["#282A36", "#282A36"], # 0   # BACKGROUND
@@ -133,10 +129,9 @@ colors = [
                 ["#BD93F9", "#BD93F9"], # 2   # PURPLE
                 ["#6272A4", "#6272A4"], # 3   # COMMENT
                 ["#FFB86C", "#FFB86C"], # 4   # ORANGE
-                ["#50FA7B", "#50FA7B"] # 5   # GREEN 
+                ["#50FA7B", "#50FA7B"], # 5   # GREEN 
+                ["#F1FA8C", "#F1FA8C"]  # 6   # YELLOW
 ]
-
-
 
 # WIDGETS FOR THE BAR
 widget_defaults = dict(
@@ -154,6 +149,12 @@ screens = [
                                                 custom_icon_paths=[os.path.expanduser("~/.config/qtile/icons")],
                                                 scale = 0.7,
                                                 padding = 5
+                                                ),
+                                        widget.TextBox(
+                                                text = "~",
+                                                foreground = colors[6],
+                                                background = colors[0],
+                                                fontsize = 19
                                                 ),
                                         widget.Spacer(
                                                 length = 20 
@@ -178,7 +179,6 @@ screens = [
                                         widget.TextBox(
                                                 font="FontAwesome",
                                                 text = "◆",
-                                                padding = 3,
                                                 foreground = colors[5],
                                                 background = colors[0],
                                                 fontsize = 16
@@ -193,7 +193,6 @@ screens = [
                                         widget.TextBox(
                                                 font="FontAwesome",
                                                 text = "◆",
-                                                padding = 3,
                                                 foreground = colors[5],
                                                 background = colors[0],
                                                 fontsize = 16
@@ -361,7 +360,6 @@ def set_floating(window):
 
 floating_types = ["notification", "toolbar", "splash", "dialog"]
 
-
 follow_mouse_focus = True
 bring_front_click = False
 cursor_warp = False
@@ -396,4 +394,4 @@ auto_fullscreen = True
 
 focus_on_window_activation = "focus" # or smart
 
-wmname = "LG3D"
+wmname = "Qtile"
