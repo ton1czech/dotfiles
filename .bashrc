@@ -113,4 +113,4 @@ ex ()
   fi
 }
 
-neofetch
+archey
