@@ -20,7 +20,7 @@ config.set('content.javascript.enabled', True, 'qute://*/*')
 
 config.set('content.notifications.enabled', False, 'https://www.youtube.com')
 
-#config.set("colors.webpage.darkmode.enabled", True)
+config.set("colors.webpage.darkmode.enabled", True)
 
 c.downloads.location.directory = '/home/ton1czech/Downloads'
 
