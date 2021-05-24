@@ -179,19 +179,12 @@ screens = [
                                         widget.Spacer(
                                                 length = 25 
                                                 ),
-                                        widget.TextBox(
-                                                font = "FontAwesome",
-                                                text = "#",
-                                                foreground = colors[7],
-                                                background = colors[0],
-                                                fontsize = 15
-                                                ),
                                         widget.WindowName(
                                                 font = "Ubuntu",
                                                 background = colors[0],
                                                 foreground = colors[7],
                                                 empty_group_string = ' ',
-                                                format = '{name}'
+                                                format = '# {name}'
                                                 ),
                                         widget.TextBox(
                                                 font="FontAwesome",
