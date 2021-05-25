@@ -180,7 +180,6 @@ screens = [
                                                 length = 25 
                                                 ),
                                         widget.WindowName(
-                                                font = "Ubuntu",
                                                 background = colors[0],
                                                 foreground = colors[7],
                                                 empty_group_string = ' ',
@@ -191,13 +190,12 @@ screens = [
                                                 text = "◆",
                                                 foreground = colors[5],
                                                 background = colors[0],
-                                                fontsize = 16
+                                                fontsize = 18
                                                 ),
                                         widget.Clock(
-                                                font="Ubuntu Bold",
                                                 foreground=colors[5],
                                                 background=colors[0],
-                                                fontsize=14,
+                                                fontsize=16,
                                                 format='%H:%M:%S'
                                                 ),
                                         widget.TextBox(
@@ -205,7 +203,7 @@ screens = [
                                                 text = "◆",
                                                 foreground = colors[5],
                                                 background = colors[0],
-                                                fontsize = 16
+                                                fontsize = 18
                                                 ),
                                         widget.Spacer(),
                                         widget.Sep(
@@ -223,7 +221,6 @@ screens = [
                                                 fontsize = 16
                                                 ),
                                         widget.OpenWeather(
-                                                font = "Ubuntu",
                                                 app_key = environ['APP_KEY'],
                                                 cityid = environ['CITY_ID'],
                                                 foreground = colors[1],
@@ -237,15 +234,37 @@ screens = [
                                                 background = colors[0]
                                                 ),
                                         widget.TextBox(
-                                                font = "FontAwesome",
-                                                text = "↑",
+                                                font="FontAwesome",
+                                                text = "𝥼",
+                                                padding = 3,
                                                 foreground = colors[1],
                                                 background = colors[0],
-                                                padding = 0,
+                                                fontsize = 16
+                                                ),
+                                        widget.CheckUpdates(
+                                                distro = "Arch_checkupdates",
+                                                display_format = "{updates} Updates",
+                                                background = colors[0],
+                                                foreground = colors[1],
+                                                colour_have_updates = colors[1],
+                                                colour_no_updates = colors[1],
+                                                update_interval = 3000
+                                                ),
+                                        widget.Sep(
+                                                linewidth = 1,
+                                                padding = 10,
+                                                foreground = colors[2],
+                                                background = colors[0]
+                                                ),
+                                        widget.TextBox(
+                                                font = "FontAwesome",
+                                                text = "📈",
+                                                foreground = colors[1],
+                                                background = colors[0],
+                                                padding = 3,
                                                 fontsize = 16
                                                 ),
                                         widget.CPU(
-                                                font="Ubuntu",
                                                 foreground = colors[1],
                                                 background = colors[0],
                                                 format="{freq_current}GHz | {load_percent}%"
@@ -265,7 +284,6 @@ screens = [
                                                 fontsize = 16
                                                 ),
                                         widget.Memory(
-                                                font="Ubuntu",
                                                 foreground = colors[1],
                                                 background = colors[0],
                                                 padding = 5
@@ -285,7 +303,6 @@ screens = [
                                                 fontsize = 12
                                                 ),
                                         widget.ThermalSensor(
-                                                font="Ubuntu",
                                                 foreground = colors[1],
                                                 background = colors[0],
                                                 threshold = 90,
@@ -306,7 +323,6 @@ screens = [
                                                 fontsize=16
                                                 ),
                                         widget.Volume(
-                                                font = "Ubuntu",
                                                 foreground = colors[1],
                                                 background = colors[0],
                                                 ),
@@ -325,7 +341,6 @@ screens = [
                                                 fontsize=16
                                                 ),
                                         widget.Clock(
-                                                font="Ubuntu",
                                                 foreground = colors[1],
                                                 background = colors[0],
                                                 fontsize = 12,
