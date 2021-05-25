@@ -244,6 +244,8 @@ screens = [
                                         widget.CheckUpdates(
                                                 distro = "Arch_checkupdates",
                                                 display_format = "{updates} Updates",
+                                                no_update_string = '0 Updates',
+                                                restart_indicator = 'Checking...',
                                                 background = colors[0],
                                                 foreground = colors[1],
                                                 colour_have_updates = colors[1],
