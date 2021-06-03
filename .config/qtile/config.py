@@ -221,8 +221,8 @@ screens = [
                                                 fontsize = 16
                                                 ),
                                         widget.OpenWeather(
-                                                app_key = environ['APP_KEY'],
-                                                cityid = environ['CITY_ID'],
+                                                app_key = '95903b10ac9f405b5b7aa02feb8717e5',
+                                                cityid = 3062351,
                                                 foreground = colors[1],
                                                 background = colors[0],
                                                 format = "{main_temp}°{units_temperature}"
