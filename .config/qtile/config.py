@@ -72,6 +72,8 @@ keys = [
         Key([mod], "x", lazy.spawn("arcolinux-logout")),
         Key([mod], "BackSpace", lazy.spawn(term+" -e fish")),
         Key([mod], "Return", lazy.spawn(term)),
+        Key([mod], "g", lazy.to_screen(0)),
+        Key([mod], "h", lazy.to_screen(1)),
 
 # SUPER + SHIFT KEYS
         Key([mod, "shift"], "q", lazy.window.kill()),
