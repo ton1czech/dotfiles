@@ -1,32 +1,4 @@
-# Copyright (c) 2010 Aldo Cortesi
-# Copyright (c) 2010, 2014 dequis
-# Copyright (c) 2012 Randall Ma
-# Copyright (c) 2012-2014 Tycho Andersen
-# Copyright (c) 2012 Craig Barnes
-# Copyright (c) 2013 horsik
-# Copyright (c) 2013 Tao Sauvage
-#
-# Permission is hereby granted, free of charge, to any person obtaining a copy
-# of this software and associated documentation files (the "Software"), to deal
-# in the Software without restriction, including without limitation the rights
-# to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-# copies of the Software, and to permit persons to whom the Software is
-# furnished to do so, subject to the following conditions:
-#
-# The above copyright notice and this permission notice shall be included in
-# all copies or substantial portions of the Software.
-#
-# THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-# IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-# FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-# AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-# LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-# OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
-# SOFTWARE.
-
 import os
-import re
-import socket
 import subprocess
 from os import environ
 from dotenv import load_dotenv
@@ -34,11 +6,11 @@ from libqtile import qtile
 from libqtile.config import Drag, Key, Screen, Group, Drag, Click, Rule
 from libqtile.command import lazy
 from libqtile import layout, bar, widget, hook
+from dotenv import load_dotenv
 from libqtile.widget import Spacer
 
 load_dotenv()
 
-#mod4 or mod = super key
 mod = "mod4"
 mod1 = "alt"
 mod2 = "control"
@@ -223,8 +195,8 @@ screens = [
                                                 fontsize = 16
                                                 ),
                                         widget.OpenWeather(
-                                                app_key = '95903b10ac9f405b5b7aa02feb8717e5',
-                                                cityid = 3062351,
+                                                app_key = environ["openweathermap_key"],
+                                                cityid = environ["city_id"],
                                                 foreground = colors[1],
                                                 background = colors[0],
                                                 format = "{main_temp}°{units_temperature}"
@@ -421,6 +393,6 @@ floating_layout = layout.Floating(float_rules=[
 fullscreen_border_width = 0, border_width = 0)
 auto_fullscreen = True
 
-focus_on_window_activation = "focus" # or smart
+focus_on_window_activation = "focus" 
 
 wmname = "Qtile"
