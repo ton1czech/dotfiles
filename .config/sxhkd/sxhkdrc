@@ -1,0 +1,59 @@
+#################################################################
+# SUPER + ... KEYS
+#################################################################
+
+#################################################################
+# CONTROL + ALT KEYS
+#################################################################
+
+#arcolinux-tweak-tool
+ctrl + alt + t
+    arcolinux-tweak-tool
+
+#File-Manager
+ctrl + alt + e
+     dolphin
+
+#################################################################
+# ALT + ... KEYS
+#################################################################
+
+#################################################################
+#     SCREENSHOTS
+#################################################################
+
+#Scrot
+Print
+    scrot 'ArcoLinux-%Y-%m-%d-%s_screenshot_$wx$h.jpg' -e 'mv $f $$(xdg-user-dir PICTURES)'
+
+#################################################################
+#     MULTIMEDIA KEYS
+#################################################################
+
+#Raises volume
+XF86AudioRaiseVolume
+    amixer set Master 10%+
+
+#Lowers volume
+XF86AudioLowerVolume
+    amixer set Master 10%-
+
+#Mute
+XF86AudioMute
+    amixer -D pulse set Master 1+ toggle
+
+#PLAY
+XF86AudioPlay
+    playerctl play-pause
+
+#Next
+XF86AudioNext
+    playerctl next
+
+#previous
+XF86AudioPrev
+    playerctl previous
+
+#Stop
+XF86AudioStop
+    playerctl stop
