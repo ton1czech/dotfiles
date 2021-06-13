@@ -1,8 +1,8 @@
-#############
-# ~/.bashrc #
-#############
+### BASICS ###
+# If not running interactively, don't do anything
+[[ $- != *i* ]] && return
 
-### ADDING TO THE PATH ###
+# Adding to the path #
 if [ -d "$HOME/.bin" ] ;
   then PATH="$HOME/.bin:$PATH"
 fi
@@ -11,16 +11,10 @@ if [ -d "$HOME/.local/bin" ] ;
   then PATH="$HOME/.local/bin:$PATH"
 fi
 
-
-### BASICS ###
-# if not running interactively, don't do anything
-[[ $- != *i* ]] && return
-
 # ignore upper and lowercase when TAB completion
 bind "set completion-ignore-case on"
 
 # Check the window size after each command and, if necessary,
-# Update the values of LINES and COLUMNS.
 shopt -s checkwinsize
 
 
@@ -43,24 +37,10 @@ alias fgrep='fgrep --color=auto'
 # continue download
 alias wget="wget -c"
 
-# top process eating memory
-alias psmem="ps auxf | sort -nr -k 4"
-alias psmem10="ps auxf | sort -nr -k 4 | head -10"
-
-# top process eating CPU
-alias pscpu="ps auxf | sort -nr -k 3"
-alias pscpu10="ps auxf | sort -nr -k 3 | head -10"
-
 # confirm before overwriting something
 alias cp="cp -i"
 alias mv="mv -i"
 alias rm="rm -i"
-
-# hardware info
-alias hw="hwinfo --short"
-
-# systeminfo
-alias probe="sudo -E hw-probe -all -upload"
 
 # navigation
 alias ..='cd ../'
@@ -69,8 +49,9 @@ alias .3='cd ../../..'
 alias .4='cd ../../../..'
 alias .5='cd ../../../../..'
 
-alias tutdir="cd /home/ton1czech/CODING/Tutorials"
-alias ptsdir="cd /home/ton1czech/CODING/Projects"
+tut() { cd "/home/ton1czech/CODING/Tutorials/$1" }
+pts(){ cd "/home/ton1czech/CODING/Projects/$1" }
+
 alias gngdir="cd /home/ton1czech/CODING/Projects/Python/Python3/gingy"
 alias cvddir="cd /home/ton1czech/CODING/Projects/JavaScript/React/covid19"
 
@@ -78,16 +59,11 @@ alias cvddir="cd /home/ton1czech/CODING/Projects/JavaScript/React/covid19"
 alias ls="exa -lah --color=always --group-directories-first"
 alias lt="exa -aT --color=always --group-directories-first"
 
-# custom git commands
-alias gS="git pull"
-alias gA="git add ."
-alias gC="git commit -m '"
-alias gP="git push -u origin master"
-
 # sync .files inside git repository Dotfiles
 alias config="/usr/bin/git --git-dir=$HOME/Dotfiles --work-tree=$HOME"
 
-# EXtractor for all kinds of archives
+
+### EXtractor for all kinds of archives ###
 ex ()
 {
   if [ -f $1 ] ; then
