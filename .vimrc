@@ -1,28 +1,27 @@
 :syntax on
 
-:set noerrorbells				" no annoying sounds
+:set noerrorbells
 
-:set tabstop=4 softtabstop=4	" tab 4 spaces
-:set smarttab					" auto tabs
-:set smartindent				" auto indentation
-:set autoindent					" auto indentation
+:set tabstop=4 softtabstop=4
+:set smarttab
+:set smartindent
+:set autoindent
 
-:set number relativenumber		" show numbers
+:set number relativenumber
 
-:set nowrap						" no text wraping, use always one line
-:set incsearch					" incremental search
-:set clipboard=unnamedplus		" copy/pase between vim and other apps
+:set nowrap
+:set incsearch
+:set clipboard=unnamedplus
 
-:set smartcase					" better searching
+:set smartcase
 
-:set noswapfile					" no swap
-:set nobackup					" no auto backups
-:set undodir=~/.vim/undodir		" set undo directory
-:set undofile					" set undo file
+:set noswapfile
+:set nobackup
+:set undodir=~/.vim/undodir
+:set undofile
 
 call plug#begin('~/.vim/plugged')
 
-Plug 'morhetz/gruvbox'
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-surround'
 Plug 'scrooloose/nerdtree'
@@ -34,8 +33,6 @@ Plug 'dracula/vim', { 'as': 'dracula' }
 call plug#end()
 ":source%
 ":PlugInstall
-
-"colorscheme dracula
 
 if executable('rg')
     let g:rg_derive_root='true'
