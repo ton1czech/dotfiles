@@ -49,18 +49,76 @@ alias .3='cd ../../..'
 alias .4='cd ../../../..'
 alias .5='cd ../../../../..'
 
-tut() { cd "/home/ton1czech/CODING/Tutorials/$1" }
-pts(){ cd "/home/ton1czech/CODING/Projects/$1" }
+tut()
+{
+    cd "/home/ton1czech/CODING/Tutorials/$1"
+}
+
+pts()
+{
+    cd "/home/ton1czech/CODING/Projects/$1"
+}
 
 alias gngdir="cd /home/ton1czech/CODING/Projects/Python/Python3/gingy"
 alias cvddir="cd /home/ton1czech/CODING/Projects/JavaScript/React/covid19"
 
-# super List dir command
+# super list dir command
 alias ls="exa -lah --color=always --group-directories-first"
 alias lt="exa -aT --color=always --group-directories-first"
 
 # sync .files inside git repository Dotfiles
 alias config="/usr/bin/git --git-dir=$HOME/Dotfiles --work-tree=$HOME"
+
+
+### git commands ###
+# git clone
+gcl()
+{
+    git clone https://github.com/$1
+}
+
+# git pull
+alias gll="git pull"
+glb()
+{
+    git pull origin $1
+}
+
+# git add
+alias gaa="git add ."
+gaw()
+{
+    git add $1
+}
+
+# git commit
+gcm()
+{
+    git commit -m "$*"
+}
+gcmn()
+{
+    git commit -m "🎁NEW: $*"
+}
+gcmi()
+{
+    git commit -m "👌IMPROVE: $*"
+}
+gcmb()
+{
+    git commit -m "🐛BUG FIX: $*"
+}
+gcmr ()
+{
+    git commit -m "❌REMOVED: $*"
+}
+
+# git push
+alias gpp="git push origin master"
+gpb ()
+{
+    git push origin $1
+}
 
 
 ### EXtractor for all kinds of archives ###
