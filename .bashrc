@@ -42,6 +42,12 @@ alias cp="cp -i"
 alias mv="mv -i"
 alias rm="rm -i"
 
+# create dir and cd into it
+mkcd ()
+{
+    [ ! -z "$1" ] && mkdir -p "$1" && cd "$_"
+}
+
 # navigation
 alias ..='cd ../'
 alias ...='cd ../..'
