@@ -121,6 +121,10 @@ gpb ()
 }
 
 
+### FUN COMMANDS ###
+alias truth="curl -L git.io/unix"
+
+
 ### EXtractor for all kinds of archives ###
 ex ()
 {
